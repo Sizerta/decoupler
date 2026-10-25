@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning][].
 [keep a changelog]: https://keepachangelog.com/en/1.0.0/
 [semantic versioning]: https://semver.org/spec/v2.0.0.html
 
+## Unreleased
+
+### Bugfixes
+- `mt.gsea` p-values can no longer be 0. With `times` permutations, a p-value of 0 is not supported by the data, and identical p-values of 0 could not be ranked or log-transformed. P-values are now `(1 + #{ES_rand >= ES}) / (1 + P+)` for positive scores (and the analogue for negative ones), as for `mt.waggr`
+
 ## 2.3.0
 
 ### Changes
